@@ -1,1 +1,54 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class oyun : MonoBehaviour
+{
+    int minSayi = 1;
+    int maxSayi = 100;
+    int tahmin;
+
+    void Start()
+    {
+        print("benimle oyun oynamak ister misin? (E/H)");
+    }
+
+   
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            print("harika! aklından 1-100 arası bir sayi tut ve enter a bas.");
+        }
+        else if (Input.GetKeyDown(KeyCode.H))
+        {
+            print("sen bilirsin!");
+        }
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            Kontrol(); 
+
+        }
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            minSayi = tahmin;
+            Kontrol();
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            maxSayi = tahmin;
+            Kontrol();
+        }
+        else if (Input.GetKeyDown(KeyCode.Space))
+        {
+            print("yaşasın aklındaki sayıyı buldumm.");
+        }
+    }
+    void Kontrol()
+    {
+        tahmin = (minSayi + maxSayi) / 2;
+        print("aklından tuttuğun sayı " + tahmin + "Mi? Daha büyük ise yukarı daha küçük ise aşğı yön tuşuna bas,doğruysa boşluk tuşuna bas.");
+    }
+
+ }
 
